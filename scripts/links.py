@@ -1,16 +1,17 @@
 from pathlib import Path
 
 
+preview_base_url = "https://github.com/cauliyang/learn_tikz/blob/main/gallery"
+
+
 def get_code_url(path: Path):
-    base_url = "https://github.com/cauliyang/learn_tikz/blob/main/gallery"
-    return base_url + "/" + path.as_posix()
+    return preview_base_url + "/" + path.as_posix()
 
 
 def create_table(texs):
     table = "|file name | code  | preview  |\n" "|---|---|---|\n"
-    base_url = "https://github.com/cauliyang/learn_tikz/blob/main"
     for tex in texs:
-        table += f"|{tex.name}|[code]({base_url}/{tex})|[preview]({base_url}/{tex.stem}.pdf)|\n"
+        table += f"|{tex.name}|[code]({preview_base_url}/{tex})|[preview]({preview_base_url}/{tex.stem}.pdf)|\n"
 
     return table
 
