@@ -29,7 +29,6 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git status
           git add .
-          latexindent -w main.tex
           git commit -m "update example and readme" -a
 
       - name: Push changes
