@@ -2,7 +2,7 @@ from pathlib import Path
 
 
 def get_code_url(path: Path):
-    base_url = "https://github.com/cauliyang/learn_tikz/blob/main"
+    base_url = "https://github.com/cauliyang/learn_tikz/blob/main/gallery"
     return base_url + "/" + path.as_posix()
 
 
