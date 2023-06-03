@@ -6,7 +6,7 @@ def write_table(texs):
     table = "|file name | code  | preview  |\n" "|---|---|---|\n"
     base_url = "https://github.com/cauliyang/learn_tikz/blob/main"
     for tex in texs:
-        table += f"|{tex.name}|[code]({base_url}/{tex})|[preview]({base_url}/{tex.name}.pdf)|\n"
+        table += f"|{tex.name}|[code]({base_url}/{tex})|[preview]({base_url}/{tex.item}.pdf)|\n"
 
     return table
 
