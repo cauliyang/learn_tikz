@@ -11,7 +11,8 @@ jobs:
         with:
           root_file: "*.tex"
           glob_root_file: true
-          latexmk_use_xelatex: true
+          latexmk_use_lualatex: true
+          latexmk_shell_escape: true
 
       - name: Update Readme
         run: |
