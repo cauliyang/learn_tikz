@@ -15,9 +15,13 @@ def create_table(texs):
     return table
 
 
+# \label{sec:example-transformer}
+
+
 def figure(path: Path):
 
     code = get_code_url(path)
+    caption = path.stem.replace("_", " ")
 
     temp = R"""
     \section{{Example {}}}
@@ -29,8 +33,6 @@ def figure(path: Path):
         \label{{fig:{}}}
     \end{{figure}}
     """.format
-
-    caption = path.stem.replace("_", " ")
 
     return temp(caption, path.stem, caption, code, "code", caption)
 
