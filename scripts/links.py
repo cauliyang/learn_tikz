@@ -24,14 +24,14 @@ def figure(path: Path):
     caption = path.stem.replace("_", " ")
 
     temp = R"""
-    \section{{Example {}}}
+\section{{Example {}}}
 
-    \begin{{figure}}[H]
-        \centering
-        \includestandalone[width=\textwidth]{{{}}}
-        \caption{{{} \href{{{}}}{{{}}} }}
-        \label{{fig:{}}}
-    \end{{figure}}
+\begin{{figure}}[H]
+    \centering
+    \includestandalone[width=\textwidth]{{{}}}
+    \caption{{{} \href{{{}}}{{{}}} }}
+    \label{{fig:{}}}
+\end{{figure}}
     """.format
 
     return temp(caption, path.stem, caption, code, "code", caption)
@@ -54,9 +54,10 @@ def update_latex(texs):
     sep2 = "% <!-- end content -->\n"
 
     content = []
+    file_name = Path("template/main.tex")
+
+    result_name = Path("main.tex")
     add = True
-    file_name = Path("main.tex")
-    temp_name = Path("nmain.tex")
 
     with open(file_name) as f:
         for line in f:
@@ -70,19 +71,11 @@ def update_latex(texs):
 
             if add:
                 content.append(line)
-
-    with open(temp_name, "w") as f:
-        f.writelines(content)
-
     try:
-        with open(temp_name, "w") as f:
+        with open(result_name, "w") as f:
             f.writelines(content)
     except Exception as e:
         print(f"update tex error happend {e}")
-        temp_name.unlink()
-    else:
-        file_name.unlink()
-        temp_name.rename(file_name)
 
 
 def update_readme(texs):
@@ -94,8 +87,8 @@ def update_readme(texs):
     content = []
     add = True
 
-    file_name = Path("README.md")
-    temp_name = Path("NREADME.md")
+    file_name = Path("template/README.md")
+    res_name = Path("README.md")
 
     with open(file_name) as f:
         for line in f:
@@ -111,14 +104,10 @@ def update_readme(texs):
                 content.append(line)
 
     try:
-        with open(temp_name, "w") as f:
+        with open(res_name, "w") as f:
             f.writelines(content)
     except Exception as e:
         print(f"update readme error happend {e}")
-        temp_name.unlink()
-    else:
-        file_name.unlink()
-        temp_name.rename(file_name)
 
 
 def main():
