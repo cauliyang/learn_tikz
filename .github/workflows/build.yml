@@ -18,6 +18,7 @@ jobs:
           glob_root_file: true
           latexmk_use_lualatex: true
           latexmk_shell_escape: true
+          args: "-output-directory=./gallery"
 
       - name: Get current date
         id: date

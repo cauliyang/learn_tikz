@@ -459,7 +459,7 @@ Thumbs.db
 
 trails/
 *pdf
-!main.pdf
+!gallery/*pdf
 
 *bak*
 
