@@ -1,0 +1,186 @@
+\documentclass[tikz]{standalone}
+\usepackage{tkz-graph}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+
+
+\begin{document}
+
+\definecolor{c1}{RGB}{141,211,199}
+\definecolor{c2}{RGB}{255,255,179}
+\definecolor{c3}{RGB}{190,186,218}
+\definecolor{cdup}{RGB}{251,128,114}
+\definecolor{cinv}{RGB}{128,177,211}
+\definecolor{ctra}{RGB}{253,180,98}
+
+
+
+% https://tex.stackexchange.com/questions/651252/make-half-half-shaded-nodes-in-tikz
+\begin{tikzpicture}[scale=1, font=\tt, fill fraction/.style={path picture={
+						\fill[#1]
+						(path picture bounding box.south) rectangle
+						(path picture bounding box.north west);
+					}}, fill fraction/.default=gray!50]
+
+	\SetGraphUnit{2}
+	\GraphInit[vstyle=Normal]
+	\renewcommand*{\VertexLineWidth}{1.5pt}
+
+	\SetUpEdge[lw = 2pt, labelcolor = white, style={-stealth}]
+	\SetUpVertex[Lpos=90,LabelOut]
+
+
+	\begin{scope}
+		\tikzset{VertexStyle/.append style={fill = c1}}
+		\Vertex[L=A]{A1}
+		\EA[L=B](A1){B1}
+		\EA[L=C](B1){C1}
+
+		\tikzset{VertexStyle/.append style={fill = c3}}
+		\SO[L=H](A1){H1}
+		\EA[L=I](H1){I1}
+		\EA[L=J](I1){J1}
+
+		\tikzset{VertexStyle/.append style={fill = c2}}
+		\SO[L=D](H1){D1}
+		\EA[L=E](D1){E1}
+		\EA[L=F](E1){F1}
+		\EA[L=G](F1){G1}
+
+		\Edge[label=dup, color=cdup](A1)(B1)
+		\Edge[label=dup, color=cdup](B1)(C1)
+
+		\Edge[label=dup, color=cdup](H1)(I1)
+		\Edge[label=inv, color=cinv](I1)(J1)
+
+		\Edge[label=inv, color=cinv](D1)(E1)
+		\Edge[label=tra, color=ctra](E1)(F1)
+		\Edge[label=inv, color=cinv](F1)(G1)
+
+		\node[below = 1em of E1] {$\left(a\right)$};
+		\node[left = 1em of A1] {\(P_1\) };
+		\node[left = 1em of H1] {\(P_2\) };
+		\node[left = 1em of D1] {\(P_3\) };
+
+	\end{scope}
+
+
+	\begin{scope}[xshift=9cm]
+		\tikzset{VertexStyle/.append style={fill=c1}}
+		\Vertex[L=A]{A}
+
+		\tikzset{VertexStyle/.append style={fill=c2, fill fraction=c1}}
+		\SOEA[L=$B \mid E$](A){B}
+
+		\tikzset{VertexStyle/.append style={fill=c2, fill fraction=c2}}
+		\SOWE[L=D](B){D}
+		\SOEA[L=F](B){F}
+
+		\tikzset{VertexStyle/.append style={fill = c3, fill fraction = c1}}
+		\NOEA[L=$C \mid H$](B){C}
+
+		\tikzset{VertexStyle/.append style={fill = c3, fill fraction = c3}}
+		\EA[L=I](C){I}
+
+		\tikzset{VertexStyle/.append style={fill = c3, fill fraction = c2}}
+		\SOEA[L=$G \mid J$](I){J}
+
+		\Edge[label=dup, color=cdup](A)(B)
+		\Edge[label=dup, color=cdup](B)(C)
+		\Edge[label=dup, color=cdup](C)(I)
+		\Edge[label=inv, color=cinv](I)(J)
+		\Edge[label=inv, color=cinv](D)(B)
+		\Edge[label=tra, color=ctra](B)(F)
+		\Edge[label=inv, color=cinv](F)(J)
+
+		\node[below = 1em of F] {$\left(b\right)$};
+	\end{scope}
+
+	\draw[->, ultra thick] ($(J1) + (2.5, 0)$) --  node[above] {\large\bfseries Construct}  ($(B) - (2.5, 0)$);
+
+\end{tikzpicture}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

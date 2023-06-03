@@ -1,0 +1,34 @@
+% !TeX program = LuaLaTeX
+\documentclass[tikz]{standalone}
+\usepackage{tkz-graph}
+\usepackage{amsmath,amssymb}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+
+\usetikzlibrary {graphs,graphdrawing}
+\usegdlibrary {trees}
+
+\begin{document}
+
+\tikz [baseline=(a.base), tree layout, minimum number of children=2, sibling distance=5mm, level distance=5mm]
+\graph [nodes={circle, inner sep=0pt, minimum size=2mm, fill, as=}]{
+a -- { b -- c -- { d -- e, f -- { g, h }}, i -- j -- k[second] }
+};\quad
+\tikz [baseline=(a.base), tree layout, minimum number of children=2,
+	sibling distance=5mm, level distance=5mm]
+\graph [nodes={circle, inner sep=0pt, minimum size=2mm, fill, as=}]{
+a -- { b -- c -- d -- e, i -- j -- { f -- {g,h}, k } }
+};
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
