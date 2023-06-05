@@ -21,7 +21,6 @@ arxiv:
 clean:
 	rm -rf  $(TARGET) *.class *.html *.log *.aux *.out *.thm *.idx *.toc *.ind *.ilg figures/torus.tex *.glg *.glo *.gls *.ist *.xdy *.pyg *.acn  *.bbl *blg *cb *cb2 *fls *acr *alg *sta *bcf $(DOKUMENT).pdf
 
-
 precommit:
 	pre-commit run -a
 

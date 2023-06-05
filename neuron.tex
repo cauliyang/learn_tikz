@@ -1,0 +1,120 @@
+\documentclass[tikz, border=0.2cm]{standalone}
+\usepackage{tkz-graph}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+
+\begin{document}
+
+
+\newcommand{\inputnum}{3}
+\newcommand{\hiddennum}{5}
+\newcommand{\outputnum}{2}
+
+\begin{tikzpicture}[
+		mynode1/.style = { circle, minimum size = 6mm, fill=orange!30},
+		mynode2/.style = { circle, minimum size = 6mm, fill=teal!50},
+		mynode3/.style = { circle, minimum size = 6mm, fill=purple!50},
+	]
+
+
+	\foreach \i in {1,..., \inputnum}
+		{
+			\node[mynode1](Input-\i) at (0, -\i) {};
+		}
+
+
+	\foreach \i in {1, 2, ...,\hiddennum}{
+			\node[mynode2,yshift=(\hiddennum - \inputnum)*5mm] (Hidden-\i) at (2.5, -\i){};
+		}
+
+	\foreach \i in {1, ...,\outputnum}{
+			\node[mynode3,yshift=(\outputnum - \inputnum)*5mm] (Output-\i) at (5, -\i) {};
+		}
+
+
+	\foreach \i in {1, ..., \inputnum}{
+			\foreach \j in {1, ..., \hiddennum}{
+					\draw [->, shorten >=1pt] (Input-\i) -- (Hidden-\j);
+				}
+		}
+
+	\foreach \i in {1, ..., \hiddennum}{
+			\foreach \j in {1, ..., \outputnum}{
+					\draw [->, shorten >=1pt] (Hidden-\i) -- (Output-\j);
+				}
+		}
+
+	\foreach \i in {1, ..., \inputnum}{
+			\draw [<-, shorten <=1pt] (Input-\i) -- ++(-1,0) node[left]{$x_{\i}$};
+		}
+
+
+	\foreach \i in {1, ...,\outputnum}{
+			\draw [->, shorten <=1pt] (Output-\i) -- ++(1,0) node[right] {\(y_{\i}\)};
+		}
+\end{tikzpicture}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
