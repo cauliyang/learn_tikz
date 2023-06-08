@@ -1,0 +1,85 @@
+\documentclass[tikz]{standalone}
+\usepackage{tkz-graph}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+
+\usepackage{mwe}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+
+\begin{document}
+% https://latexdraw.com/how-to-annotate-an-image-in-latex/
+\begin{tikzpicture}[line width=1pt, color=blue]
+
+	\node[above right, inner sep=0] (image) at (0,0)  {\includegraphics[width=\textwidth]{example-image}};
+
+	\begin{scope}[x = {($0.1*(image.south  east)$)}, y = {($0.1*(image.north west)$)}]
+		\draw [red, step=1] (image.south west) grid (image.north east);
+
+		\foreach \x in {0, 1, ...,10}{
+				\node [below]  at (\x,0)  {\x};
+			}
+
+		\foreach \y in {1, ...,10}{
+				\node [left]  at (0,\y)  {\y};
+			}
+
+		\node [circle, fill=green]  at (7.25,6.75)  {\small 2};
+		\draw [stealth-, very thick, green] (5, 1.75) -- ++(0.5, -0.5) node[right, black, fill=white] {\small Dspace card};
+		\draw [latex-, very thick, green] (2.5, 1) -- ++(-0.5, 0) node[left, black, fill=white] {\small Voltage source};
+		\draw [very thick, green] (.5, 2.5) rectangle (4, 9.5) node[below left, black, fill=green] {\small 1};
+
+		\draw [latex-, very thick, green] (5.5, 4) edge (5.5, 5.5) (5.75, 4.5) --
+		(5.5,5.5) node[above, black, fill=white] {\small R-L load};
+
+	\end{scope}
+
+\end{tikzpicture}
+
+\begin{tikzpicture}
+	\begin{axis}[
+			xmin=0, ymax=10,
+			ymin=0, ymax=10,
+			width=\textwidth,
+			height=0.6\textwidth,
+			scale only axis,
+			grid = both,
+			axis on top,
+		]
+
+		\addplot graphics[xmin=0, ymin=0, xmax=10, ymax=10] {example-image};
+		\node [circle, fill=green] at (axis cs:7.25,6.75) {\small 2};
+		\draw [latex-, very thick, green] (axis cs:2.5,1) -- ++(-0.5, 0) node[left, black, fill=white] {\small Voltage source};
+		\draw[stealth-, very thick,green] (axis cs:5,1.75) -- ++(0.5,-0.5)
+		node[right,black,fill=white]{\small Dspace card};
+
+		\draw[very thick,green] (axis cs:0.5,2.5) rectangle (axis cs:4,9.5)
+		node[below left,black,fill=green]{\small 1};
+
+		\draw[latex-, very thick,green] (axis cs:5.5,4) edge (axis cs:5.5,5.5)
+		(axis cs:5.75,4.5) -- (axis cs:5.5,5.5)
+		node[above,black,fill=white]{\small R-L load};
+
+	\end{axis}
+\end{tikzpicture}
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
