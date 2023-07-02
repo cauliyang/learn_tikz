@@ -1,0 +1,16 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{tkz-graph}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+
+\begin{document}
+
+
+\begin{tikzpicture}
+	\node {A} child {node {1} edge from parent [dashed, ->]
+			node [above, sloped, font=\tiny]{down}};
+\end{tikzpicture}
+
+\end{document}
