@@ -1,3 +1,5 @@
+% !TeX program = lualatex
+
 \documentclass[tikz,border=10pt]{standalone}
 \usepackage{tkz-graph}
 \usepackage{amsmath,amssymb}
@@ -8,8 +10,9 @@
 
 \tikzset{mytext/.style = {font=\sffamily\bfseries, text=white},
         vertex/.style = {mytext, shape=circle, ball color = #1},
-        verext/.default = blue,
         number/.style = {mytext, draw, fill=red}}
+
+\tikzset{vertex/.default = blue}
 
 \tikzset{highlight/.style = {draw=yellow, very thick, densely dotted},
         highlight vertex/.style = {vertex, highlight},
