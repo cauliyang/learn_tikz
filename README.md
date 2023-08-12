@@ -21,7 +21,6 @@ Please note, while I endeavor to comment on and explain my code where possible, 
 |image-overlay.tex|[code](https:/github.com/cauliyang/learn_tikz/blob/main/source/image-overlay.tex)|[preview](https://github.com/cauliyang/learn_tikz/blob/main/gallery/image-overlay.pdf)|
 |shape.tex|[code](https:/github.com/cauliyang/learn_tikz/blob/main/source/shape.tex)|[preview](https://github.com/cauliyang/learn_tikz/blob/main/gallery/shape.pdf)|
 |plot3d.tex|[code](https:/github.com/cauliyang/learn_tikz/blob/main/source/plot3d.tex)|[preview](https://github.com/cauliyang/learn_tikz/blob/main/gallery/plot3d.pdf)|
-|main.tex|[code](https:/github.com/cauliyang/learn_tikz/blob/main/source/main.tex)|[preview](https://github.com/cauliyang/learn_tikz/blob/main/gallery/main.pdf)|
 |qual_graph.tex|[code](https:/github.com/cauliyang/learn_tikz/blob/main/source/qual_graph.tex)|[preview](https://github.com/cauliyang/learn_tikz/blob/main/gallery/qual_graph.pdf)|
 |plot_function.tex|[code](https:/github.com/cauliyang/learn_tikz/blob/main/source/plot_function.tex)|[preview](https://github.com/cauliyang/learn_tikz/blob/main/gallery/plot_function.pdf)|
 |tree2.tex|[code](https:/github.com/cauliyang/learn_tikz/blob/main/source/tree2.tex)|[preview](https://github.com/cauliyang/learn_tikz/blob/main/gallery/tree2.pdf)|

@@ -21,11 +21,18 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-auxfiles-
 
-      - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@master
+      - name: Compile main.tex
+        uses: xu-cheng/latex-action@v2
         with:
-          root_file: |
-            "source/*tex"
+          root_file: "main.tex"
+          latexmk_use_lualatex: true
+          latexmk_shell_escape: true
+          args: "-output-directory=./gallery"
+
+      - name: Compile source/*.tex
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: "source/*.tex"
           glob_root_file: true
           latexmk_use_lualatex: true
           latexmk_shell_escape: true
