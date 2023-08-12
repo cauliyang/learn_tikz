@@ -8,19 +8,20 @@
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{tikzlings}
 
+\begin{document}
+
 \tikzset{mytext/.style = {font=\sffamily\bfseries, text=white},
-        vertex/.style = {mytext, shape=circle, ball color = #1},
-        number/.style = {mytext, draw, fill=red}}
+	vertex/.style = {mytext, shape=circle, ball color = #1},
+	number/.style = {mytext, draw, fill=red}}
 
 \tikzset{vertex/.default = blue}
 
 \tikzset{highlight/.style = {draw=yellow, very thick, densely dotted},
-        highlight vertex/.style = {vertex, highlight},
-        highlight number/.style = {number, highlight}}
+	highlight vertex/.style = {vertex, highlight},
+	highlight number/.style = {number, highlight}}
 
 \tikzset{bridge/.style = {thick ,  double=yellow, double distance= 1pt}}
 
-\begin{document}
 
 \begin{tikzpicture}
 	\node [vertex] (A)  {A};
