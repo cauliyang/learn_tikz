@@ -5,7 +5,7 @@ preview_base_url = "https://github.com/cauliyang/learn_tikz/blob/main/gallery"
 
 
 def get_code_url(path: Path):
-    return Path(preview_base_url).parent / "source" / path.as_posix()
+    return Path(preview_base_url).parent / path.as_posix()
 
 
 def create_table(texs):
