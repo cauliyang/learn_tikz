@@ -21,10 +21,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-auxfiles-
 
-      - name: Update files
-        run: |
-          python scripts/links.py
-
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@master
         with:

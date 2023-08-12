@@ -23,7 +23,7 @@ clean:
 update:
 	python scripts/links.py
 
-precommit:
+precommit: update
 	pre-commit run -a
 
 commit: update precommit
