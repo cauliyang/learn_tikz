@@ -5,13 +5,13 @@ preview_base_url = "https://github.com/cauliyang/learn_tikz/blob/main/gallery"
 
 
 def get_code_url(path: Path):
-    return Path(preview_base_url).parent / path.as_posix()
+    return Path(preview_base_url).parent / "source" / path.as_posix()
 
 
 def create_table(texs):
     table = "|file name | code  | preview  |\n" "|---|---|---|\n"
     for tex in texs:
-        table += f"|{tex.name}|[code]({preview_base_url}/{tex})|[preview]({preview_base_url}/{tex.stem}.pdf)|\n"
+        table += f"|{tex.name}|[code]({get_code_url(tex)})|[preview]({preview_base_url}/{tex.stem}.pdf)|\n"
 
     return table
 
