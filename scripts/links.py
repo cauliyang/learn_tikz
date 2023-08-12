@@ -47,29 +47,29 @@ def create_tex(texs):
 def update_latex(texs):
     figures = create_tex(texs)
 
-    sep1 = "% <!-- begin content -->\n"
-    sep2 = "% <!-- end content -->\n"
+    start_sep = "% <!-- begin content -->\n"
+    end_sep = "% <!-- end content -->\n"
 
     content = []
-    file_name = Path("template/main.tex")
 
-    result_name = Path("main.tex")
+    file_name = Path("main.tex")
     add = True
-
     with open(file_name) as f:
         for line in f:
-            if line == sep1:
+            if line.lstrip() == start_sep:
                 add = False
+                line = line.lstrip()
                 content.append(line)
                 content.append(figures)
 
-            if line == sep2:
+            if line.lstrip() == end_sep:
                 add = True
+                line = line.lstrip()
 
             if add:
                 content.append(line)
     try:
-        with open(result_name, "w") as f:
+        with open(file_name, "w") as f:
             f.writelines(content)
     except Exception as e:
         print(f"update tex error happend {e}")
@@ -78,30 +78,28 @@ def update_latex(texs):
 def update_readme(texs):
     table = create_table(texs)
 
-    sep1 = "<!-- begin table -->\n"
-    sep2 = "<!-- end table -->\n"
+    start_sep = "<!-- begin table -->\n"
+    end_sep = "<!-- end table -->\n"
 
     content = []
+    file_name = Path("README.md")
+
     add = True
-
-    file_name = Path("template/README.md")
-    res_name = Path("README.md")
-
     with open(file_name) as f:
         for line in f:
-            if line == sep1:
+            if line == start_sep:
                 add = False
                 content.append(line)
                 content.append(table)
 
-            if line == sep2:
+            if line == end_sep:
                 add = True
 
             if add:
                 content.append(line)
 
     try:
-        with open(res_name, "w") as f:
+        with open(file_name, "w") as f:
             f.writelines(content)
     except Exception as e:
         print(f"update readme error happend {e}")

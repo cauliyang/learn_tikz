@@ -20,10 +20,12 @@ arxiv:
 clean:
 	rm -rf  $(TARGET) *.class *.html *.log *.aux *.out *.thm *.idx *.toc *.ind *.ilg figures/torus.tex *.glg *.glo *.gls *.ist *.xdy *.pyg *.acn  *.bbl *blg *cb *cb2 *fls *acr *alg *sta *bcf 
 
+update:
+	python scripts/links.py
+
 precommit:
 	pre-commit run -a
 
-commit: precommit
+commit: update precommit
 	git add .
 	aic
-
