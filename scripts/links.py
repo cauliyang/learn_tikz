@@ -5,7 +5,7 @@ preview_base_url = "https://github.com/cauliyang/learn_tikz/blob/main/gallery"
 
 
 def get_code_url(path: Path):
-    return preview_base_url + "/" + path.as_posix()
+    return Path(preview_base_url).parent / path.as_posix()
 
 
 def create_table(texs):
@@ -16,16 +16,13 @@ def create_table(texs):
     return table
 
 
-# \label{sec:example-transformer}
-
-
 def figure(path: Path):
-
-    code = get_code_url(path)
+    code = get_code_url(path).as_posix()
+    code.replace("_", "\_")
     caption = path.stem.replace("_", " ")
 
     temp = R"""
-\section{{Example {}}}
+\section{{Case {}}}
 
 \begin{{figure}}[H]
     \centering
@@ -39,7 +36,6 @@ def figure(path: Path):
 
 
 def create_tex(texs):
-
     res = []
     for tex in texs:
         if tex.name not in ["main.tex", "nmain.tex"]:

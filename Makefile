@@ -1,5 +1,4 @@
-DOKUMENT=full_proposal
-
+DOKUMENT=main
 
 make: 
 	pdflatex $(DOKUMENT).tex -output-format=pdf # Referenzen erstellen
@@ -19,7 +18,7 @@ arxiv:
 	zip -r upload.zip . -x \*.git\* -x MAKEFILE -x *.zip -x *.pdf
 
 clean:
-	rm -rf  $(TARGET) *.class *.html *.log *.aux *.out *.thm *.idx *.toc *.ind *.ilg figures/torus.tex *.glg *.glo *.gls *.ist *.xdy *.pyg *.acn  *.bbl *blg *cb *cb2 *fls *acr *alg *sta *bcf $(DOKUMENT).pdf
+	rm -rf  $(TARGET) *.class *.html *.log *.aux *.out *.thm *.idx *.toc *.ind *.ilg figures/torus.tex *.glg *.glo *.gls *.ist *.xdy *.pyg *.acn  *.bbl *blg *cb *cb2 *fls *acr *alg *sta *bcf 
 
 precommit:
 	pre-commit run -a
