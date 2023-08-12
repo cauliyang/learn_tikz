@@ -107,8 +107,10 @@ def update_readme(texs):
 
 def main():
     texs = []
+    ignore = ["arrow.tex"]
     for tex in Path(".").rglob("*tex"):
-        texs.append(tex)
+        if tex.name not in ignore:
+            texs.append(tex)
     update_readme(texs)
     update_latex(texs)
 

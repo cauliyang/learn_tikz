@@ -7,6 +7,20 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v3
 
+      - name: Cache LaTeX dependencies
+        uses: actions/cache@v3
+        with:
+          path: /usr/local/share/texmf
+          key: ${{ runner.os }}-texmf-${{ hashFiles('**/*.tex') }}
+
+      - name: Cache auxiliary files
+        uses: actions/cache@v3
+        with:
+          path: ./gallery
+          key: ${{ runner.os }}-auxfiles-${{ hashFiles('**/*.tex') }}
+          restore-keys: |
+            ${{ runner.os }}-auxfiles-
+
       - name: Update files
         run: |
           python scripts/links.py

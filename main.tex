@@ -6,10 +6,8 @@
 % Load the LuaTeX packages
 \usepackage{fontspec}
 \usepackage{luatextra}
-\usepackage{graphicx}
 \usepackage{standalone}
 \usepackage{amsmath,amssymb}
-
 \usepackage{hvlogos}
 \usepackage{pgfplots}
 \usepgfplotslibrary{fillbetween}
@@ -34,9 +32,10 @@
 
 \usegdlibrary{trees}
 
-\usepackage[colorlinks=true]{hyperref}
-
+\usepackage{graphicx}
 \graphicspath{{./source/}}
+
+\usepackage[colorlinks=true]{hyperref}
 
 % Set the main document font
 \setmainfont{Latin Modern Roman}
@@ -58,15 +57,6 @@
 	\includestandalone[width=\textwidth]{transformer}
 	\caption{transformer \href{https:/github.com/cauliyang/learn_tikz/blob/main/source/transformer.tex}{code} }
 	\label{fig:transformer}
-\end{figure}
-
-\section{Case arrow}
-
-\begin{figure}[H]
-	\centering
-	\includestandalone[width=\textwidth]{arrow}
-	\caption{arrow \href{https:/github.com/cauliyang/learn_tikz/blob/main/source/arrow.tex}{code} }
-	\label{fig:arrow}
 \end{figure}
 
 \section{Case hello world}
